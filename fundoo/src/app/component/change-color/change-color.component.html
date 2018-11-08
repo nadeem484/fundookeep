@@ -1,0 +1,26 @@
+<button mat-icon-button id="changcolor" [matMenuTriggerFor]="menu">
+  <i class="material-icons">palette</i></button>
+
+<mat-menu #menu="matMenu" class="menucard">
+
+  <div>
+    <button mat-mini-fab (click)="changeColor('#FFFF8D')"></button>
+    <button mat-mini-fab color="primary" (click)="changeColor('#FFA07A')"></button>
+    <button mat-mini-fab color="accent" (click)="changeColor('#FAFAD2')"></button>
+    <button mat-mini-fab color="warn" (click)="changeColor('#F4A460')"></button>
+  </div>
+
+  <div>
+    <button mat-mini-fab  (click)="changeColor('AFEEEE')"></button>
+    <button mat-mini-fab (click)="changeColor('DDA0DD')"></button>
+    <button mat-mini-fab color="primary" (click)="changeColor('#9370DB')"></button>
+    <button mat-mini-fab color="accent" (click)="changeColor('#778899')"></button>
+    </div>
+  <div>
+    <button mat-mini-fab color="warn" (click)="changeColor('#F4A460')"></button>
+    <button mat-mini-fab  (click)="changeColor('#FFC0CB')"></button>
+    <button mat-mini-fab color="warn"(click)="changeColor('#BA55D3')"></button>
+    <button mat-mini-fab  (click)="changeColor('#B0C4DE')"></button>
+  </div>
+
+</mat-menu>

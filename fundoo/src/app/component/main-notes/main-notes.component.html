@@ -1,0 +1,12 @@
+<div class="container" fxLayout="column" fxLayoutGap="5%">
+
+ <div fxFlex="40%" >
+  <app-notes (CloseClick)="refresh($event)"></app-notes>
+ </div>
+
+  <div fxFlex="60%">
+  <app-app-notes  [array]=arr  (deleteClick)="refresh($event)" (eventEmit)="refresh($event)" (colorClick)="refresh($event)" (archiveClick)="refresh($event)"></app-app-notes>
+  </div>
+
+</div>
+

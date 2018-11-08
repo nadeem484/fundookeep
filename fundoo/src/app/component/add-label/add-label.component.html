@@ -1,0 +1,24 @@
+<button mat-icon-button [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()" class="addbutton">Add label</button>
+
+<mat-menu #menu="matMenu" class="morecard">
+    <div style="width: 200px; padding:4%">
+        <p>Label note</p>
+
+        <div fxLayout="row">
+            <input type="text" placeholder="Enter label name" 
+            name="querry" [(ngModel)]="query" (click)="$event.stopPropagation()" class="textarea">
+            <div fxFlex=10%>
+                <mat-icon style="font-size:15px">search</mat-icon>
+            </div>
+        </div>
+
+        <div fxLayout=row *ngFor="let data of ListOfLabel | search: query">
+
+            <div fxFlex=10%>
+                <mat-checkbox type="checkbox" (click)="addAndDeletelabel(data)" (click)="$event.stopPropagation(lablename)" [(ngModel)]="data.isChecked">{{data.label}}</mat-checkbox>
+            </div>
+            
+        </div>
+
+    </div>
+</mat-menu>

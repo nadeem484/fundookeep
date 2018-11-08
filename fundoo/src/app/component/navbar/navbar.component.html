@@ -1,0 +1,117 @@
+<!-- <div fxFlex> -->
+<!-- <div fxLayout="column wrap"> -->
+
+<div>
+<mat-toolbar class="navbar">
+  <mat-toolbar-row>
+    <button id="menubuttn" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" color="primary">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+
+    <p id="text" fxHide.xs="true" fxHide.xs="true">Fundoo Keep</p>
+
+    <div id="searchbox" fxLayout="row" fxLayoutGap="2%">
+      <div fxFlex="0%">
+        <button mat-icon-button id="buttn"><i id="search" class="material-icons">search</i></button>
+      </div>
+      <div fxFlex="100">
+        <input id="input" type="text" placeholder="Search" name="string" (click)="searchtest()" [(ngModel)]="string">
+      </div>
+    </div>
+
+    <i id="refresh" class="material-icons">refresh</i>
+    <!-- <i id="viewstream" class="material-icons" fxHide.xs="true" fxHide.xs="true">view_stream</i> -->
+
+    <button id="viewstream" mat-icon-button aria-label="view_agenda"  fxHide.xs="true" fxShow.sm="false" fxShow.md="true" fxShow.lg="true">
+      <mat-icon aria-label="view_stream" (click)="viewList()" *ngIf="grid==0">view_stream</mat-icon>
+      <mat-icon aria-label="view_module" (click)="viewGrid()" *ngIf="grid==1">view_module</mat-icon>
+    </button>
+
+
+    <i id="apps" class="material-icons" fxHide.xs="true" fxHide.xs="true">apps</i>
+    <i id="notification" class="material-icons" fxHide.xs="true" fxHide.xs="true">notifications</i>
+    
+    <button mat-icon-button class="icon-button" id="more"  [matMenuTriggerFor]="menu">
+        <i id="accountcircle" class="material-icons">account_circle</i></button>
+    <!-- <button id="account_circle" type="button" mat-icon-button (click)="logoutcard()" color="primary"> -->
+      <!-- <i id="accountcircle" class="material-icons">account_circle</i></button> -->
+  
+    </mat-toolbar-row>
+</mat-toolbar>
+</div>
+<!-- </div> -->
+
+
+<!-- <button mat-icon-button class="icon-button" id="more"  [matMenuTriggerFor]="menu">
+    <i id="accountcircle" class="material-icons">account_circle</i></button> -->
+
+
+<mat-menu #menu="matMenu" class="morecard">
+
+    <button mat-button (click)="logout()">Sign out</button>
+    
+</mat-menu>
+  
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #drawer mode="side" opened role="navigation" id="sidenave">
+
+    <mat-nav-list id="insidenave">
+      <button mat-stroked-button id="button" (click)="notes()"><img class="image" src="../../../assets/image/note.svg" id="imgNotes" >Notes</button><br>
+      <button mat-stroked-button id="button"><img class="image" src="../../../assets/image/reminders.svg" id="imgRem">Reminders</button><br>
+      <hr id="line">
+      <div>
+        <span style="margin-left: 10px">Label</span> <button mat-stroked-button id="editbutton" type="button">Edit</button>
+      </div>
+
+      
+      <!-- <app-side-label [labelnamelistt]=labelNameList ></app-side-label> -->
+
+      <div (updateClick)="refresh($event)" >
+          <button mat-stroked-button class="buttonn" (click)="createLabel()" >
+            <img class="image" src="../../../assets/image/label.svg" id="imglab">Createnew label</button>
+            <div *ngFor="let data of labelNameList" > 
+              <div fxLayout=row fxLayoutGap="10%" >
+
+                <button mat-stroked-button class=labelbutton (click)="notesWithList(data)">
+                  <div fxFlex="5%"><i class="material-icons">label</i></div>
+                  <div fxFlex="90%" class="txtt">{{data}}</div>
+                </button>
+        
+              </div>
+            </div>
+          
+          </div>
+
+        
+      <hr id="line">
+      <button mat-stroked-button id="button" (click)="archive()"><img class="image" src="../../../assets/image/Archive.svg" id="imgArc">Archive</button><br>
+      <button mat-stroked-button id="button" (click)="trashnote()"><img class="image" src="../../../assets/image/Trash.svg" id="imgtrace">Trash</button><br>
+      <hr id="line">
+      <button mat-stroked-button id="button"><img class="image" src="../../../assets/image/Settings.svg" id="imgSet">Settings</button><br>
+      <button mat-stroked-button id="button"><img class="image" src="../../../assets/image/Send_feedback.svg" id="imgfeed">Send
+        feedback
+      </button><br>
+      <button mat-stroked-button id="button"><img class="image" src="../../../assets/image/help.svg" id="imghelp">Help</button><br>
+      <button mat-stroked-button id="button"><img class="image" src="../../../assets/image/app_download.svg" id="imgdn">App
+        download
+      </button><br>
+      <button mat-stroked-button id="button"><img class="image" src="../../../assets/image/keyboard_shortcuts.svg" id="imgkb">Keyboard
+        shortcuts
+      </button><br>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+<!-- </div> -->
+<!-- </div> -->
+<!-- <button id="viewstream" mat-icon-button aria-label="view_agenda"  fxHide.xs="true" fxShow.sm="false" fxShow.md="true" fxShow.lg="true">
+    <mat-icon aria-label="view_stream" (click)="viewList()" *ngIf="grid==0">view_stream</mat-icon>
+    <mat-icon aria-label="view_module" (click)="viewGrid()" *ngIf="grid==1">view_module</mat-icon>
+  </button> -->

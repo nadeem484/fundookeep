@@ -1,0 +1,69 @@
+
+<div class="notes" >
+
+
+  <!-- *ngFor="let data of arra" -->
+
+<mat-card class="matcard" *ngIf="hidenote">
+  <div data-text="Take a note..." contenteditable="true" class="content" (click)="newlist()"></div>
+  <div class="newlist">
+    <button mat-icon-button (click)="newlist()"><i class="material-icons">format_list_bulleted</i></button>
+    <button mat-icon-button ><i class="material-icons"> insert_photo </i></button>
+    <button mat-icon-button><i class="material-icons">create</i></button>
+  </div>
+</mat-card>
+
+
+
+<mat-card *ngIf="hidecard">
+  <div data-text="Title" contenteditable="true" class="content"  #title  ></div><br>
+  <div data-text="Take a note..." contenteditable="true" class="content"  #description></div>
+
+  <mat-chip-list>
+      <span *ngFor="let data of list">
+        <mat-chip class="labelnames">{{data.label}}<mat-icon class="cross" style="font-size: 15px" >clear</mat-icon></mat-chip>
+      </span>
+  </mat-chip-list>
+
+
+  <div>
+    <button mat-icon-button><i class="material-icons" id="remind">touch_app</i></button>
+
+    <button mat-icon-button id="collaborator"><i class="material-icons" >person_add</i></button>
+
+    <!-- <app-change-color></app-change-color> -->
+    <app-change-color (colorClick)="onColor($event)"></app-change-color>
+    <!-- <button mat-icon-button id="changcolor"><i class="material-icons">palette</i></button> -->
+
+    <button mat-icon-button id="addimage"><i class="material-icons"> insert_photo</i></button>
+
+    <button mat-icon-button id="archive"><i class="material-icons">archive</i></button>  
+
+    <app-more (chipupdate)="chipupdate($event)"></app-more>
+    <!-- <button mat-icon-button id="more"><i class="material-icons">more_vert</i></button> -->
+
+    <button mat-icon-button id="undo"><i class="material-icons">undo</i></button>
+
+    <button mat-icon-button id="redo"><i class="material-icons">redo </i></button>
+    
+    <button mat-button id="close" (click)="noteAdd(title, description)" (click)="hidecard=!hidecard" (click)="hidenote=!hidenote" >close</button>
+  </div>
+</mat-card>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- (click)="hidecard=!hidecard" -->
+<!-- style="border-color: black;border-style:solid"  -->
+<!-- ngStyle.xm="12px" ngStyle.sm="19px" ngStyle.md="30px" ngStyle.lg="40px" ngStyle.xl="50px" -->
+<!-- ngStyle.xm="font-size:12px" ngStyle.sm="font-size:19px" ngStyle.md="font-size:24px" ngStyle.lg="font-size:29px" -->

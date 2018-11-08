@@ -1,0 +1,52 @@
+<!-- <div class="container" fxLayout='column'fxLayoutgap=10> -->
+
+<div class="container" fxLayout="column"  fxLayoutGap="10%">
+  <div class="row1" fxFlex="33%" fxFlex.md="65" ></div>
+
+  <div class="row2" fxFlex="34%" fxLayout="row" >
+    <div class="col1" fxFlex="33%" fxFlex.xs="0"  ></div>
+    <div class="col2" fxFlex="34%" fxFlex.xs="100">
+      <mat-card>
+        <form class="example-form" >
+            <div fxLayoutAlign="center center"><img src='../../../assets/image/google.png' alt="google" width=30% height=100% ></div>
+            <mat-card-title fxLayoutAlign="center center"> Login</mat-card-title>
+
+            <p fxLayoutAlign="center center">with your Google Account</p>
+              <mat-form-field class="example-full-width" >
+                <input  type="text" matInput placeholder="Email or phone" name="email" required  [(ngModel)]="model.email" #emailref="ngModel">
+
+              </mat-form-field>
+              <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class ="aler alert-danger">
+                <div *ngIf="emailref?.errors.required"  style="color:rebeccapurple">
+                 email is required
+                </div>
+              </div>
+
+              <mat-form-field class="example-full-width">
+                <input type="text" matInput placeholder="Password"  name="password" required [(ngModel)]="model.password" #passwd="ngModel" [type]="hide ? 'text' : 'password'">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+              </mat-form-field>
+              <div *ngIf="passwd.errors &&(passwd.touched || passwd.dirty)">
+                <div *ngIf="passwd?.errors.required" style="color:rebeccapurple">
+                  password is required
+                </div>
+               </div>
+              <div>
+              <div  fxLayoutAlign="end end"><button mat-button id="nextbutton" (click)="login()" >Login</button></div>
+              <a class="link" routerLink="/passwordforgot">Forget email?</a><br>
+              <a class="link" routerLink="/signup">Create Account</a>
+              </div>
+               <!-- <button id="btn">Login</button> -->
+                </form>
+              </mat-card>
+    </div>
+    <div col="col3" fxFlex="33%" fxFlex.xs="0"></div>
+  </div>
+
+  <div class="row3" fxFlex="33%"></div>
+  </div>
+
+
+
+
+

@@ -1,0 +1,13 @@
+.textarea{
+    /* width:90%; */
+    outline: none;
+}
+.textarea:empty:before{
+    content: attr(data-text);
+    opacity: 0.5;
+    font-size: 12px;
+}
+#button{
+    border-style: none;
+    /* width: 100%; */
+}

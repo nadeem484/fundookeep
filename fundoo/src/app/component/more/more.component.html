@@ -1,0 +1,22 @@
+<button *ngIf='!isDelete' mat-icon-button class="icon-button" title="more"  [matMenuTriggerFor]="menu">
+    <i class="material-icons">more_vert</i></button>
+
+
+<mat-menu #menu="matMenu" class="morecard">
+
+  <button mat-menu-item (click)="deleteNotes()">Delete note</button>
+
+  <app-add-label [note]="model"  (clickbox)="refresh($event)" (updatechip)="updatechip($event)"></app-add-label>
+  <button mat-menu-item>Show checkboxes</button>
+</mat-menu>
+
+
+<button *ngIf='isDelete' mat-icon-button class="icon-button" title="more"  [matMenuTriggerFor]="menuDelete">
+  <i class="material-icons">more_vert</i></button>
+
+<mat-menu #menuDelete="matMenu">
+    <button mat-menu-item class="menu">Delete Forever</button>
+    <button mat-menu-item class="menu" (click)="remove()" >Restore</button>
+</mat-menu>
+
+

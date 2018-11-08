@@ -1,0 +1,34 @@
+.textarea{
+    /* width:90%; */
+    outline: none;
+    text-decoration-line: underline;
+    
+
+}
+.textarea:empty:before{
+    content: attr(data-text);
+    opacity: 0.5;
+    font-size: 12px;
+}
+.icon{
+    font-size:16px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.icon:hover{
+    opacity:1
+}
+#text{
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden !important;
+}
+
+/* #imglab{
+    margin-right: 18px;
+    margin-left: 5px;
+    
+  }
+  .button{
+    border: none;
+  } */

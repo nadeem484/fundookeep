@@ -1,0 +1,110 @@
+<div class="container" fxLayout="column"  fxLayoutGap="7%">
+    <div class="row1" fxFlex="23%"></div>
+    <div class="row2" fxFlex="54%" fxLayout="row"  >
+        <div class="col1" fxFlex="23%" fxFlex.xs="0" ></div>
+        <div class="col2" fxFlex="54%" fxFlex.xs="100">
+
+         <mat-card>
+            <img src="../../../assets/image/google.png" alt="google" width=15% height=100%>
+            <p id="icon">Create your Google Account</p>
+
+              <div fxLayout="row" >
+                 <div fxFlex="50%" id="fname">
+                 <mat-form-field style="width:90%">
+                  <input matInput placeholder="First name"  name="fname" required pattern="[a-zA-Z]{2,15}$"  [(ngModel)]="model.fname" #name="ngModel">
+                 </mat-form-field>
+                 <div *ngIf="name.invalid && (name.dirty || name.touched)" >
+                    <div *ngIf="name?.errors.required"  style="color:rebeccapurple">first name is required. </div>
+                    <div *ngIf="name?.errors.minlength || name.errors.pattern"  style="color:rebeccapurple">invalid pattern first name should have only charectors and length 2 to 15.</div>
+                    <!-- <div *ngIf="name.errors.pattern"> Invalid pattern </div>  -->
+                 </div>
+                 </div>
+
+                 <div fxFlex="50%" id="lname">
+                   <mat-form-field style="width:90%" >
+                    <input matInput placeholder="Last name" name="lname" required pattern="[a-zA-Z]{2,10}$"  [(ngModel)]="model.lname" #name1="ngModel">
+                   </mat-form-field>
+                   <div *ngIf="name1.invalid && (name1.dirty || name1.touched)" >
+                     <div *ngIf="name1?.errors.required" style="color:rebeccapurple"> last name is required. </div>
+                     <div *ngIf="name1?.errors.pattern"  style="color:rebeccapurple">invalid pattern last name should have only aphabet and lenght less then10</div>
+                    </div>
+                 </div>
+              </div>
+                 <!-- ......................................................... -->
+                  <mat-form-field class ="example-full-width" style="width:95%">
+                  <input matInput placeholder="Username" name="email" required pattern="[a-zA-Z0-9_.]+@[a-z0-9.-]+\.[a-z]{2,3}$" [(ngModel)]="model.email" #emailref="ngModel" >
+                  <mat-hint>You can use letters,numbers & periods</mat-hint>
+                  </mat-form-field>
+
+                  <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class ="aler alert-danger">
+                       <div *ngIf="emailref?.errors.required"  style="color:rebeccapurple">
+                        email is required
+                       </div>
+                       <div [hidden]="!emailref.errors?.pattern"  style="color:rebeccapurple">
+                            Invalid pattern
+                       </div>
+                  </div>
+                <!-- ............................................................ -->
+              <div fxLayout="row">
+                <div fxFlex="50%">
+                <mat-form-field style="width:90%">
+                    <input matInput placeholder="Password" name="password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" #passwd="ngModel" [(ngModel)]="model.password" [type]="hide ? 'text' : 'password'">
+                </mat-form-field>
+                <div *ngIf="passwd.errors &&(passwd.touched || passwd.dirty)" class="alert alert-danger">
+                        <div *ngIf="passwd.errors.required"  style="color:rebeccapurple">
+                            password required
+                        </div>
+                        <div *ngIf="passwd.errors.pattern" style="color:rebeccapurple" >
+                            password should have Lowercase letters, Uppercase letters, Numbers, Special characters and minimum lenght should be 8.
+                        </div>
+                        <!-- <mat-error class="alert" *ngIf="!lForm.controls['email'].valid && lForm.controls['email'].touched">provide a valid email</mat-error> -->
+                    </div>
+                </div>
+
+
+                <div fxFlex="50%">
+                <mat-form-field style="width:90%">
+                <input matInput placeholder="Confirm password" name="confirmpassword" required  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}" #confirmpassword="ngModel" [(ngModel)]="model.confirmpassword" [type]="hide ? 'text' : 'password'" >
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                </mat-form-field>
+                <div *ngIf="confirmpassword.errors &&(confirmpassword.touched || confirmpassword.dirty)" class="alert alert-danger">
+                 <div *ngIf="confirmpassword.errors.required"  style="color:rebeccapurple">confirm password required</div>
+                 <div *ngIf="confirmpassword.errors.pattern"  style="color:rebeccapurple">
+                        password should have Lowercase letters, Uppercase letters, Numbers, Special characters and minimum lenght should be 8.
+                 </div>
+                 <!-- <div [hidden]=”confirmpassword.valid || (confirmpassword.pristine && !f.submitted)”>
+                 Password mismatch
+                 </div> -->
+                 </div>
+                </div>
+
+              </div>
+              <mat-hint id="txt">Use 8 or more characters with a mix of letters, numbers & symbols</mat-hint>
+             <!-- ............................................................................. -->
+                <div >
+                    <div id="col1" fxLayoutGap="5%" fxLayout="row" fxFlex="95%">
+                        <mat-card *ngFor="let data of card" class="example-card" >
+                        <mat-card mat-button (click)="response(data)" [ngClass]="data.select ? 'selected' : 'notselected'">
+                        <mat-card-title>{{data.name}}</mat-card-title>
+                        <mat-card-content>{{data.description}}</mat-card-content>
+                        </mat-card>
+                        </mat-card>
+                    </div>
+                </div><br>
+                
+              <!-- ............................................................................. -->
+                    <div fxLayout="row" fxLayoutGap="50%">
+                     <div  fxFlex="50%">
+                        <a class="link" routerLink="/login">Sign in instead</a>
+                        </div>
+                        <div  fxFlex="50%">
+                        <button mat-button  id="nextbutton" (click)="signup(model)">Next</button>
+                        </div>
+                    </div>
+              <!-- .............................................................................. -->
+         </mat-card>
+        </div>
+    <div col="col3" fxFlex="23%" fxFlex.xs="0"></div>
+ </div>
+<div class="row3" fxFlex="23%"></div>
+</div>

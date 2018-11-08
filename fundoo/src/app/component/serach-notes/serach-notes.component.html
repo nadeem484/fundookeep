@@ -1,0 +1,36 @@
+
+
+<div  class="example-card" fxLayout="row">
+
+  <mat-card class="notescard" *ngFor="let data of notesArray | search:message" id="cardover" [ngStyle]="{'background-color':data.color}">
+  
+    <div>
+    <mat-card-title  (click)= openDialog(data)>{{data.title}}</mat-card-title>
+    </div>
+        
+    <div>
+    <mat-card-content (click)= openDialog(data)>{{data.description}}</mat-card-content>
+    </div>
+  
+    <mat-chip-list>
+        <span *ngFor="let notedata of data.noteLabels">
+          <span class="labelnames">{{notedata.label}}<mat-icon style="font-size: 15px" (click)="deletelabel(data.id,notedata.id)">clear</mat-icon></span>
+        </span>
+    </mat-chip-list>
+  
+  
+    <div class="mouseover">
+    <button *ngIf="!data.isDeleted" mat-icon-button class="icon-button"><i class="material-icons" id="remind">touch_app</i></button>
+    <button *ngIf="!data.isDeleted" mat-icon-button id="collaborator"><i class="material-icons" >person_add</i></button>
+    <span *ngIf="!data.isDeleted"><app-change-color [Notesid]="data.id" (colorClick)="refresh($event)" ></app-change-color></span>
+    <button *ngIf="!data.isDeleted" mat-icon-button id="addimage"><i class="material-icons"> insert_photo</i></button>
+  
+  
+    <span *ngIf="!data.isDeleted"><app-archive [Notesid]="data.id" (archiveClick)="refresh($event)"></app-archive></span>
+    <app-more [model]="data" (deleteClick)="refresh($event)"  (eventEmitmore)="refresh($event)"></app-more>
+  
+    </div>
+    
+  </mat-card>
+  
+  </div>

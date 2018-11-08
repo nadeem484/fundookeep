@@ -1,0 +1,55 @@
+.notescard{
+    width: 240px;
+    margin: 10px;
+    word-wrap: break-word;
+    height: min-content;
+    /* float: left; */
+    /* opacity: 1.5; */
+    
+    /* justify-content: center; */
+}
+.notescard:hover .mouseover {
+  visibility: visible;
+
+}
+.example-card{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* ....................... */
+  #remind{
+    color: gray;
+  }
+  #collaborator{
+    color: gray;
+   
+  }
+  #changcolor{
+    color: gray;
+  
+  }
+  #addimage{
+    color: gray;
+   
+  }
+
+  #more{
+    color: gray;
+  }
+ /* ......................... */
+
+ .mouseover{
+   /* display: block;
+  cursor: pointer; */
+  /* background-color: brown; */
+  visibility: hidden;
+  /* position: absolute; bottom: 0px;  */
+}
+.labelnames{
+  background-color: cadetblue;
+  margin: 5px;
+  border-radius: 10px
+
+}
+

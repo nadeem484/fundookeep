@@ -1,0 +1,38 @@
+/* #uname{
+    width: 100%;
+  } */
+  #txt{
+    margin-top: -16px;
+    font-size: small;
+  }
+  #icon{
+    margin-top: -22px;
+    font-size: x-large;
+  }
+  .example-full-width{
+    width: 60%;
+  }
+#gmail{
+    margin-left: 80%
+}
+#nextbutton{
+  color: white;
+  background-color: rgb(33, 130, 209);
+}
+.link{
+  color: rgb(33, 130, 209);
+  text-decoration:none 
+}
+.example-card{
+  background-color: cornflowerblue
+}
+.selected{
+  background-color: brown
+}
+.notselected{
+  background-color: aquamarine
+}
+
+/* #col1{
+width: 50%;
+} */

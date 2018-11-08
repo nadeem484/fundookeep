@@ -1,0 +1,92 @@
+ <div class="notecard"  [ngStyle]="{'background-color':data.color}">
+
+  <div mat-dialog-title contenteditable="true" id="title" class="textarea" [innerHTML]=data.title></div>
+  <p mat-dialog-content contenteditable="true" id="description"class="textarea" [innerHTML]=data.description></p>
+
+  <mat-chip-list class="chip">
+    <span *ngFor="let notedata of labels">
+      <span class="labelnames">{{notedata.label}}<mat-icon class="cross" style="font-size: 15px">clear</mat-icon></span>
+    </span>
+</mat-chip-list>
+
+  <div class="mouseover">
+  <button *ngIf='!isDelete' mat-icon-button class="icon-button"><i class="material-icons" id="remind">touch_app</i></button>
+  <button *ngIf='!isDelete' mat-icon-button id="collaborator"><i class="material-icons" >person_add</i></button>
+  <span *ngIf='!isDelete'><app-change-color [Notesid]="data.id" (eventEmit)="refresh($event)" (colorClick)="refresh($event)"></app-change-color></span>
+  <button *ngIf='!isDelete' mat-icon-button id="addimage"><i class="material-icons"> insert_photo</i></button>
+  <span *ngIf='!isDelete'><app-archive [Notesid]="data.id" (archiveClick)="refresh($event)" ></app-archive></span>
+
+  <app-more [model]="data" (deleteClick)="refresh($event)"></app-more>  
+
+
+  <button *ngIf='!isDelete' mat-button (click)="closeClick(data.title, data.description );" style="float:right">Close</button>
+  </div>
+ </div>
+
+
+
+ <!-- (clickbox)="refresh($event)" (eventEmitmore)="refresh($event)" -->
+<!-- (colorClick)="refresh($event)" -->
+ <!-- (eventUpdate)="refresh($event)" -->
+ <!-- <button *ngIf='isDelete' mat-icon-button class="icon-button" title="more"  [matMenuTriggerFor]="menuDelete">
+  <i class="material-icons">more_vert</i></button>
+
+<mat-menu #menuDelete="matMenu">
+    <button mat-menu-item class="menu">Delete Forever</button>
+    <button mat-menu-item class="menu" (click)=remove()>Restore</button>
+</mat-menu> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div >
+  <mat-card-title (click)= openDialog(data)>{{data.title}}</mat-card-title>
+  </div>
+            
+  <div>
+  <mat-card-content (click)= openDialog(data)>{{data.description}}</mat-card-content>
+  </div> -->
+
+   <!-- <mat-card-title>
+      <div [innerHTML] contenteditable="true" class="content" id="title"></div>
+    </mat-card-title>
+    
+    <mat-card-content>
+      <div data-text="Take a note..." contenteditable="true" class="content" ></div>
+    </mat-card-content>
+
+
+  <div class="mouseover">
+  <button mat-icon-button class="icon-button"><i class="material-icons" id="remind">touch_app</i></button>
+  <button mat-icon-button id="collaborator"><i class="material-icons" >person_add</i></button>
+  <app-change-color [Notesid]="data.id" (colorClick)="refresh($event)" ></app-change-color>
+  <button mat-icon-button id="addimage"><i class="material-icons"> insert_photo</i></button>
+      
+  <app-archive [Notesid]="data.id" (archiveClick)="refresh($event)"></app-archive>
+  <app-more [model]="data.id" (deleteClick)="refresh($event)"></app-more>
+
+</div> -->
+    

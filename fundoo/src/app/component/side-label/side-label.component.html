@@ -1,0 +1,5 @@
+<div>
+  <app-notes (CloseClick)="refresh($event)"></app-notes>
+  <app-app-notes [array]=noteWithLabelList (anyChanges)="refresh($event)" (deleteClick)="refresh($event)" (eventEmit)="refresh($event)"
+    (colorClick)="refresh($event)" (archiveClick)="refresh($event)"></app-app-notes>
+</div>

@@ -1,0 +1,73 @@
+/* .notes{
+  justify-content: center;
+  display:flex;
+} */
+.notes{
+  justify-content: center;
+  display:flex;
+  margin-top: 14px;
+}
+
+.content{
+  outline: none;
+  width:400px;
+  position: relative;
+}
+div:empty::before{
+  content:attr(data-text);
+  color: gray
+}
+.matcard{
+width: 400px;
+/* margin-left: 200px */
+
+}
+
+/* ...................... */
+.newlist{
+  margin-left: 280px;
+  margin-top: -30px
+}
+#remind{
+  color: gray;
+}
+#collaborator{
+  color: gray;
+  margin-left: 30px;
+}
+#changcolor{
+  color: gray;
+  margin-left: 30px;
+}
+#addimage{
+  color: gray;
+  margin-left: 30px;
+}
+#archive{
+  color: gray;
+  margin-left: 30px;
+}
+#more{
+  color: gray;
+  margin-left: 30px;
+}
+#undo{
+  color: gray;
+  margin-left: 30px;
+}
+#redo{
+  color: gray;
+  margin-left: 30px;
+  
+}
+#close{
+  margin-left: 50px;
+}
+/* .....................*/
+
+.cross{
+  opacity: 0;
+}
+.cross:hover{
+  opacity:0.7;
+}

@@ -1,0 +1,14 @@
+.link{
+  color: rgb(33, 130, 209);
+  text-decoration:none 
+}
+#nextbutton{
+  color: white;
+  background-color: rgb(33, 130, 209)
+}
+.example-full-width{
+  color: rgb(33, 130, 209);
+}
+.example-full-width{
+  width: 100%;
+}
